@@ -1,47 +1,28 @@
-import csv
+import pandas as pd
 import matplotlib.pyplot as plt
-from collections import defaultdict, Counter
 
-# קובץ העקיבה
-csv_path = r'yolo_output\sort_tracks.csv'
+# 🔁 נתיב לקובץ התוצאה:
+csv_path = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\simple_tracks_Protamine_6h_fly1_sr1.csv"
 
-# אוגרים את כל נקודות התנועה
-track_coords = defaultdict(list)
-track_frames = Counter()
+# 🎯 מזהה הזרעון
+target_id = 1  # ← שנה את המספר לפי ה-ID שברצונך לראות
 
-with open(csv_path, 'r') as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-        track_id = int(row['track_id'])
-        frame = int(row['frame'])
-        x1 = float(row['x1'])
-        y1 = float(row['y1'])
-        x2 = float(row['x2'])
-        y2 = float(row['y2'])
+# קריאת הקובץ וסינון לפי ה-ID
+df = pd.read_csv(csv_path)
+df = df[df['track_id'] == target_id].sort_values(by='frame')
 
-        x_center = (x1 + x2) / 2
-        y_center = (y1 + y2) / 2
+# חישוב מרכז התיבה בכל פריים
+df['x_center'] = (df['x1'] + df['x2']) / 2
+df['y_center'] = (df['y1'] + df['y2']) / 2
 
-        track_coords[track_id].append((frame, x_center, y_center))
-        track_frames[track_id] += 1
-
-# מיון לפי אורך הופעה (כמות פריימים)
-top_10_tracks = [track_id for track_id, _ in track_frames.most_common(10)]
-top_9_tracks=[x for x in top_10_tracks if x==990 ]
-# ציור
-plt.figure(figsize=(10, 10))
-for track_id in top_9_tracks:
-    # ממיינים לפי מספר פריים כדי שהתנועה תצא רציפה
-    sorted_coords = sorted(track_coords[track_id], key=lambda x: x[0])
-    xs = [x for _, x, _ in sorted_coords]
-    ys = [y for _, _, y in sorted_coords]
-    plt.plot(xs, ys, marker='o', label=f'ID {track_id}')
-
-plt.gca().invert_yaxis()
-plt.title("תנועת 10 הזרעונים הארוכים ביותר (SORT)")
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.legend()
+# ציור המסלול
+plt.figure(figsize=(8, 6))
+plt.plot(df['x_center'], df['y_center'], marker='o', linestyle='-', color='blue', label=f'Track ID {target_id}')
+plt.title(f"Trajectory of sperm cell ID {target_id}")
+plt.xlabel("X Center Position (pixels)")
+plt.ylabel("Y Center Position (pixels)")
+plt.gca().invert_yaxis()  # הפוך את ציר Y כי תמונות מתחילות למעלה
 plt.grid(True)
+plt.legend()
 plt.tight_layout()
 plt.show()
