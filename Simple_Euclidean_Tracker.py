@@ -3,10 +3,10 @@ import numpy as np
 from scipy.spatial.distance import cdist
 
 
-input_csv = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\sort_input_image_before_tagging.csv"
-output_csv = r'yolo_output\simple_tracks_image_before_tagging.csv'
+input_csv = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\sort_input_kk fly5 sr1.csv"
+output_csv = r'yolo_output\simple_tracks_kk fly5 sr1.csv'
 # ⚙️ פרמטרים
-distance_threshold = 40  # מרחק מירבי לשיוך אובייקט
+distance_threshold = 30  # מרחק מירבי לשיוך אובייקט
 
 # 📥 קריאה
 df = pd.read_csv(input_csv)

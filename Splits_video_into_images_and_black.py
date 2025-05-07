@@ -50,8 +50,8 @@ def convert_lsm_to_frames(lsm_path, output_folder):
 # Example usage
 if __name__ == "__main__":
     # Define paths
-    lsm_path = r"C:\videos_lsm\Protamine 6h fly1 sr1.lsm"
-    output_folder =r"C:\videos_lsm\frames\Protamine 6h fly1 sr1"
+    lsm_path = r"C:\videos_lsm_test_yolov_8\kk fly5 sr1.lsm"
+    output_folder =r"C:\videos_lsm_test_yolov_8\frames_lsm\kk fly5 sr1"
 
     # Run the conversion
     try:

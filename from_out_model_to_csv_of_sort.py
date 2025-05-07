@@ -2,8 +2,8 @@ import os
 import csv
 
 # ⚙️ נתיבים:
-labels_folder = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\image_before_tagging\labels"  # הנתיב לקבצי ה-TXT של YOLO
-output_csv = r'yolo_output\sort_input_image_before_tagging.csv'   # הנתיב לקובץ ה-CSV של SORT
+labels_folder = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\kk fly5 sr1\labels"  # הנתיב לקבצי ה-TXT של YOLO
+output_csv = r'yolo_output\sort_input_kk fly5 sr1.csv'   # הנתיב לקובץ ה-CSV של SORT
 image_width = 256
 image_height = 256
 

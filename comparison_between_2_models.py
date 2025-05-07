@@ -38,6 +38,6 @@ def compare_models(model_path_1, model_path_2, data_yaml):
 
 compare_models(
     model_path_1='runs/detect/train4/weights/best.pt',
-    model_path_2='runs/detect/train6/weights/best.pt',
+    model_path_2='runs/detect/train2/weights/best.pt',
     data_yaml='C:/tracformer_modle/trackformer-sperm/progect_yolov8/dataset/data.yaml'
 )

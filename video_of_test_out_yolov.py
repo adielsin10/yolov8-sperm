@@ -3,9 +3,9 @@ import cv2
 from glob import glob
 
 # ⚙️ נתיבים — עדכן לפי הצורך
-images_dir = r"C:\tracformer_modle\all_image_of_sperm\image_before_tagging" # ← תיקיית התמונות (frame_0001.png וכו')
-labels_dir = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\image_before_tagging\labels"  # ← תיקיית קבצי YOLO.txt
-output_video = r"C:\videos_try\image_before_tagging_video_of_test_yolov.mp4"
+images_dir = r"C:\videos_lsm_test_yolov_8\frames_lsm\protamine 48h #2 sr" # ← תיקיית התמונות (frame_0001.png וכו')
+labels_dir = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\protamine 48h #2 sr\labels"  # ← תיקיית קבצי YOLO.txt
+output_video = r"C:\videos_lsm_test_yolov_8\out_yolov\protamine 48h #2 sr.mp4"
 image_width, image_height = 256, 256  # ← גודל התמונה המקורי
 
 # ✨ איסוף התמונות לפי סדר
