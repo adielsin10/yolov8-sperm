@@ -5,9 +5,9 @@ from natsort import natsorted
 import re
 
 # 🗂️ נתיבים
-frames_dir = r"C:\tracformer_modle\all_image_of_sperm\image_before_tagging"
-tracking_csv = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\simple_tracks_image_before_tagging.csv"
-output_video = r'C:\videos_try\simple_tracks_image_before_tagging.mp4'
+frames_dir = r"C:\videos_lsm\frames\FKY1 SR1"
+tracking_csv = r"C:\tracformer_modle\trackformer-sperm\progect_yolov8\yolo_output\simple_tracks_FKY1_SR1.csv"
+output_video = r'C:\videos_try\simple_tracks_FKY1_SR1.mp4'
 
 # 📖 קריאת תוצאות המעקב
 df = pd.read_csv(tracking_csv)
@@ -28,7 +28,7 @@ height, width, _ = first_frame.shape
 
 # 🎞️ יצירת קובץ וידאו
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-fps = 5
+fps = 1
 out = cv2.VideoWriter(output_video, fourcc, fps, (width, height))
 
 # 🖼️ מעבר על כל פריים לפי שם הקובץ
