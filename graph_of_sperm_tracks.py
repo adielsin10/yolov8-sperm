@@ -19,3 +19,4 @@ plt.legend(loc='upper right', fontsize='small', ncol=2)
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
